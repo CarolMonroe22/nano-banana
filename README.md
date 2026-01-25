@@ -5,7 +5,7 @@ Generate images using Google's Nano Banana Pro model via AI agents like Claude C
 ## Install
 
 ```bash
-npx skills add carolmonroe/nano-banana
+npx skills add CarolMonroe22/nano-banana
 ```
 
 ## Requirements

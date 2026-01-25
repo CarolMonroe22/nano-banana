@@ -3,7 +3,7 @@ name: nano-banana
 description: Generate images using Nano Banana Pro (Google Generative AI). Use this skill when the user asks to create, generate, or make images of any kind - illustrations, photos, product mockups, logos, scenes, textures, UI mockups, or any visual content. Handles style selection, prompt building, generation, and preview.
 license: MIT
 metadata:
-  author: carolmonroe
+  author: CarolMonroe22
   version: "1.0.0"
   tags:
     - ai
