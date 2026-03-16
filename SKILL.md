@@ -1,10 +1,10 @@
 ---
 name: nano-banana
-description: Generate images using Nano Banana Pro (Google Generative AI). Use this skill when the user asks to create, generate, or make images of any kind - illustrations, photos, product mockups, logos, scenes, textures, UI mockups, or any visual content. Handles style selection, prompt building, generation, and preview.
+description: Generate images using Nano Banana (Google Generative AI). Use this skill when the user asks to create, generate, or make images of any kind - illustrations, photos, product mockups, logos, scenes, textures, UI mockups, or any visual content. Handles style selection, prompt building, generation, and preview.
 license: MIT
 metadata:
   author: CarolMonroe22
-  version: "1.0.0"
+  version: "2.0.0"
   tags:
     - ai
     - images
@@ -13,9 +13,9 @@ metadata:
     - design
 ---
 
-# Nano Banana Pro
+# Nano Banana
 
-Generate images using the Nano Banana Pro model via Google Generative AI API. Supports any image type: illustrations, realistic photos, product mockups, logos, scenes, patterns, UI concepts, and more.
+Generate images using Google Generative AI API. Supports any image type: illustrations, realistic photos, product mockups, logos, scenes, patterns, UI concepts, and more.
 
 ## Setup (first time only)
 
@@ -33,7 +33,7 @@ If `GOOGLE_AI_API_KEY` is not set:
 
 1. **Ask for concept** - What image do you want to create?
 2. **Ask for type** - Illustration, photo, mockup, logo, etc.
-3. **Ask for model** - Show options with cost (see Models below)
+3. **Ask for quality level** - nano-banana-2 (fast, good quality) or nano-banana-pro (best quality, slower)?
 4. **Ask for size** - What dimensions/aspect ratio?
 5. **Ask for style** - User describes their aesthetic, colors, or picks a preset
 6. **Build prompt** - Combine type + style + concept + size into a generation prompt
@@ -46,9 +46,9 @@ Present these options and confirm cost before generating:
 
 | Model | Flag | Cost/image | Best for |
 |-------|------|-----------|----------|
-| Nano Banana Pro | `-m nano-banana-pro` | ~$0.13 | Best quality, recommended |
-| Gemini 2.5 Flash | `-m gemini-2.5-flash` | ~$0.05 | Fast, good quality, budget |
-| Gemini 2.0 Flash | `-m gemini-2.0-flash` | ~$0.03 | Fastest, lower quality |
+| Nano Banana 2 (default) | `-m nano-banana-2` | ~$0.04 | Latest, fastest, good quality |
+| Nano Banana Pro | `-m nano-banana-pro` | ~$0.06 | Best quality, slower |
+| Nano Banana (legacy) | `-m nano-banana` | ~$0.04 | Original model |
 
 Always confirm: "This will cost approximately $X.XX. Proceed?"
 
@@ -188,7 +188,7 @@ Tileable, consistent spacing, high quality. Square 1:1.
 python3 scripts/generate.py "<full_prompt>" -o ~/Desktop/<filename>.png -m <model> --open
 ```
 
-- `-m` selects the model (default: `nano-banana-pro`)
+- `-m` selects the model (default: `nano-banana-2`)
 - `--open` opens the image in the default viewer after generation
 - Use descriptive kebab-case filenames (e.g., `laptop-notifications.png`)
 - If user doesn't like the result, tweak the prompt and regenerate
@@ -205,9 +205,9 @@ When user needs multiple images in a consistent style (e.g., blog series, icon s
 Example batch flow:
 ```bash
 # Same style, different concepts
-python3 scripts/generate.py "<STYLE PREFIX> A laptop with sparkles. <STYLE SUFFIX>" -o ~/Desktop/batch/01-laptop.png -m nano-banana-pro
-python3 scripts/generate.py "<STYLE PREFIX> A rocket launching. <STYLE SUFFIX>" -o ~/Desktop/batch/02-rocket.png -m nano-banana-pro
-python3 scripts/generate.py "<STYLE PREFIX> A lightbulb moment. <STYLE SUFFIX>" -o ~/Desktop/batch/03-lightbulb.png -m nano-banana-pro
+python3 scripts/generate.py "<STYLE PREFIX> A laptop with sparkles. <STYLE SUFFIX>" -o ~/Desktop/batch/01-laptop.png -m nano-banana-2
+python3 scripts/generate.py "<STYLE PREFIX> A rocket launching. <STYLE SUFFIX>" -o ~/Desktop/batch/02-rocket.png -m nano-banana-2
+python3 scripts/generate.py "<STYLE PREFIX> A lightbulb moment. <STYLE SUFFIX>" -o ~/Desktop/batch/03-lightbulb.png -m nano-banana-2
 ```
 
 Confirm total cost before starting: "This batch of N images will cost approximately $X.XX total. Proceed?"

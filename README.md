@@ -1,6 +1,6 @@
-# Nano Banana Pro
+# Nano Banana
 
-Generate images using Google's Nano Banana Pro model via AI agents like Claude Code, Cursor, or Windsurf.
+Generate images using Google Generative AI via AI agents like Claude Code, Cursor, or Windsurf.
 
 ## Install
 
@@ -45,9 +45,9 @@ The skill handles the rest: asks for style, size, model, builds the prompt, and 
 
 | Model | Cost/image | Best for |
 |-------|-----------|----------|
-| Nano Banana Pro | ~$0.13 | Best quality |
-| Gemini 2.5 Flash | ~$0.05 | Good quality, budget |
-| Gemini 2.0 Flash | ~$0.03 | Fastest, lower quality |
+| Nano Banana 2 (default) | ~$0.04 | Latest, fastest, good quality |
+| Nano Banana Pro | ~$0.06 | Best quality, slower |
+| Nano Banana (legacy) | ~$0.04 | Original model |
 
 ## Batch Generation
 

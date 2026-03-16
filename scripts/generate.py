@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nano Banana Pro - Image generation via Google Generative AI API."""
+"""Nano Banana - Image generation via Google Generative AI API."""
 
 import argparse
 import base64
@@ -15,13 +15,13 @@ API_KEY = os.environ.get("GOOGLE_AI_API_KEY")
 BASE_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models"
 
 MODELS = {
-    "nano-banana-pro": "nano-banana-pro-preview",
-    "gemini-2.5-flash": "gemini-2.5-flash-image",
-    "gemini-2.0-flash": "gemini-2.0-flash-exp",
+    "nano-banana-2": "gemini-3.1-flash-image-preview",
+    "nano-banana-pro": "gemini-3-pro-image-preview",
+    "nano-banana": "gemini-2.5-flash-image",
 }
 
 
-def generate_image(prompt: str, output_path: str, model: str = "nano-banana-pro") -> str:
+def generate_image(prompt: str, output_path: str, model: str = "nano-banana-2") -> str:
     """Generate an image from a text prompt. Returns the output file path."""
     if not API_KEY:
         print("ERROR: GOOGLE_AI_API_KEY not set in environment.", file=sys.stderr)
@@ -76,12 +76,12 @@ def open_in_preview(path: str):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate image with Nano Banana Pro")
+    parser = argparse.ArgumentParser(description="Generate image with Nano Banana")
     parser.add_argument("prompt", help="The image generation prompt")
     parser.add_argument("-o", "--output", default="output.png", help="Output file path")
-    parser.add_argument("-m", "--model", default="nano-banana-pro",
+    parser.add_argument("-m", "--model", default="nano-banana-2",
                         choices=list(MODELS.keys()),
-                        help="Model to use (default: nano-banana-pro)")
+                        help="Model to use (default: nano-banana-2)")
     parser.add_argument("--open", action="store_true", help="Open in viewer after generating")
     args = parser.parse_args()
 
